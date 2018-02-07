@@ -1995,7 +1995,10 @@ label.error{
 														<select onchange="getSumTotal(this.value,this.name)" name="cs_item_qu_${en.quType }_${en.id }_${rowItem.id }_${columnItem.id}" class="quChenScoreSelect" > 
 															<option value="0">-评分-</option>
 														<c:forEach begin="0" end="${columnItem.maxScore}" var="scoreNum" >
-															<option value="${columnItem.maxScore - scoreNum}" >${columnItem.maxScore - scoreNum}分</option>
+														    <c:if test="${columnItem.maxScore ne scoreNum }">
+														    	<option value="${columnItem.maxScore - scoreNum}" >${columnItem.maxScore - scoreNum}分</option>
+														    </c:if>
+														
 														</c:forEach>
 														</select> 
 														<input type="hidden" class="answerTag" value="0" >

@@ -116,7 +116,9 @@ public class QuChenAction extends ActionSupport{
 				//quChenRow.setOptionName(optionNameValue);
 				quChenColumn.setOptionName(optValue[0]);
 				try {
-					quChenColumn.setMaxScore(Integer.parseInt(optValue[1]));
+					String  str  = optValue[1].replaceAll("</?[^>]+>", ""); //剔出<html>的标签
+					  str  = str.replaceAll("&nbsp;", ""); //剔出<html>的标签
+					quChenColumn.setMaxScore(Integer.parseInt(str.trim()));
 				} catch (IndexOutOfBoundsException e) {
 					// TODO Auto-generated catch block
 					quChenColumn.setMaxScore(10);
